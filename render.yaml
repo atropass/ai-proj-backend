@@ -3,12 +3,12 @@ services:
     name: fastapi
     runtime: docker
     plan: free
-    repo: https://github.com/atropass/ai-proj-backend
-    region: Bahrain
+    repo: https://github.com/atropass/ai-proj-backend.git
+    region: frankfurt
     branch: main
     envVars:
       - key: MONGO_URL
         sync: false
     buildFilter:
       paths:
-        - app/**
+      - app/**
