@@ -9,6 +9,7 @@ class GetModel(AppModel):
     phys: dict = Field(alias="Физика")
     math: dict = Field(alias="Математика")
     chem: dict = Field(alias="Химия")
+    bio: dict = Field(alias="Биология")
 
 
 @router.get("/json", response_model=GetModel)
@@ -16,4 +17,9 @@ def get_topic(
     svc: Service = Depends(get_service),
 ) -> dict[str, str]:
     json = svc.repository.get_topic_by_id()
-    return GetModel(phys=json["Физика"], math=json["Математика"], chem=json["Химия"])
+    return GetModel(
+        phys=json["Физика"],
+        math=json["Математика"],
+        chem=json["Химия"],
+        bio=json["Биология"],
+    )
