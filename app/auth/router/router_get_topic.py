@@ -1,13 +1,13 @@
 from fastapi import Depends
-
+from pydantic import Field
 from app.utils import AppModel
 from ..service import Service, get_service
 from . import router
 
 
 class GetModel(AppModel):
-    phys: dict
-    math: dict
+    phys: dict = Field(alias="Физика")
+    math: dict = Field(alias="Математика")
 
 
 @router.get("/json", response_model=GetModel)

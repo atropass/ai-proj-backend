@@ -39,7 +39,7 @@ class AuthRepository:
     def get_topic_by_id(self) -> Optional[dict]:
         json = self.database["storage"].find_one(
             {
-                "_id": ObjectId("64be00795823d160b0c39bc7"),
+                "_id": ObjectId("64d1d10ecd5a4554209b8438"),
             }
         )
         return json
